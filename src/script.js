@@ -3,8 +3,8 @@
 
 function Calculadora(numero1, numero2, operador) {
   
-  let num1 = parseInt(numero1)
-  let num2 = parseInt(numero2)
+  let num1 = parseFloat(numero1)
+  let num2 = parseFloat(numero2)
   let resultado
 
   switch (operador) {
@@ -50,7 +50,7 @@ function limpezatotal() {
 }
 
 function calcular() {
-  let numeros = visor.value.split(/[^0-9]/)
+  let numeros = visor.value.split(/[^0-9\.]/)
   let operadores = visor.value.split(/[0-9]/)
   let operador
   operadores.forEach(x => {
@@ -58,5 +58,5 @@ function calcular() {
       operador = x
   });
 
-  visor.value = Calculadora(numeros[0], numeros[1], operador)
+  visor.value = Calculadora(parseFloat(numeros[0]), parseFloat(numeros[1]), operador)
 }
